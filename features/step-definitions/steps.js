@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import { expect, $ } from '@wdio/globals'
+import { expect, $, browser } from '@wdio/globals'
 
 import LoginPage from '../pageobjects/login.page.js';
 import TopMenu from '../pageobjects/top.menu.js';
@@ -14,6 +14,7 @@ const pages = {
 
 Given(/^I am on the (\w+) page$/, async (page) => {
     await pages[page].open()
+    await browser.maximizeWindow()
 });
 
 
@@ -39,6 +40,7 @@ When(/^I click add package icon on top menu$/, async () => {
 });
 
 Then(/^add new package detail$/, async () => {
+    await browser.pause(2000)
     await PackagePage.addPackage(randomData)
 });
 

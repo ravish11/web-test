@@ -48,8 +48,11 @@ class PackagePage extends Page {
         await this.inputName.waitForExist({ timeout: 5000 });
         await browser.pause(2000)
         await this.inputName.setValue(randomData.name);
+        await browser.pause(2000)
         await this.inputLength.setValue(randomData.length);
+        await browser.pause(2000)
         await this.inputWidth.setValue(randomData.width);
+        await browser.pause(2000)
         await this.inputHeight.setValue(randomData.height);
         await browser.pause(5000)
         var packageName=`${randomData.name} ${randomData.length} x ${randomData.width} x ${randomData.height}`
